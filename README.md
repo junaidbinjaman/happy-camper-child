@@ -1,3 +1,4 @@
+![GPL License](https://img.shields.io/badge/License-GPL-blue.svg)
 # WC Bulk Variation Add to Cart Plugin
 
 ## Overview
