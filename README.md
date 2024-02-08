@@ -1,3 +1,4 @@
+![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green)
 ![GPL License](https://img.shields.io/badge/License-GPL-blue.svg)
 # WC Bulk Variation Add to Cart Plugin
 
