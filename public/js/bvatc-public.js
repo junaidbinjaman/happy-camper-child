@@ -1,6 +1,7 @@
 (function( $ ) {
 	'use strict';
 
+	window.bvatc_ajaxurl = wp_ajax_object.ajax_url;
 	/**
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
@@ -30,3 +31,31 @@
 	 */
 
 })( jQuery );
+
+function bvatc_addToCartHandler($, productID, quantity = 1, callback) {
+    $.ajax({
+        type: 'POST',
+        url: window.bvatc_ajaxurl,
+        data: {
+            action: 'bvatc_foobar',
+            productID: productID,
+            quantity: quantity
+        },
+        success: function(response) {
+            response = JSON.parse(response);
+            callback(null, response);
+        },
+        error: function(xhr, status, error) {
+            callback(error, null);
+        }
+    });
+}
+
+bvatc_addToCartHandler($, productID, quantity, function(error, response) {
+    if (error) {
+        console.error('Error:', error);
+    } else {
+        console.log('Response:', response);
+    }
+});
+

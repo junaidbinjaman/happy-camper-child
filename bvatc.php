@@ -77,3 +77,46 @@ function run_bvatc() {
 	$plugin->run();
 }
 run_bvatc();
+
+/**
+ * Define the third-party libs and frameworks
+ */
+
+require_once plugin_dir_path( __FILE__ ) . 'includes/bvatc-tgm-config.php';
+require_once plugin_dir_path( __FILE__ ) . 'libs/codestar-framework/codestar-framework.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/bvatc-codestar-config.php';
+
+
+// phpcs:disable
+
+require plugin_dir_path( __FILE__ ) . 'includes/class-bvatc-utility.php';
+
+function bvatc_foobar() {
+	$product_id = $_POST['productID'] ? $_POST['productID'] : 0;
+	$quantity = $_POST['quantity'] ? $_POST['quantity'] : 0;
+
+	$utility = new Bvatc_Utility();
+	$result = $utility->add_to_cart( $product_id, $quantity );
+
+	echo wp_json_encode( $result );
+	wp_die();
+}
+
+add_action( 'wp_ajax_bvatc_foobar', 'bvatc_foobar' );
+
+function foobar() {
+	$variation_id = 161;
+	$variation = wc_get_product( $variation_id );
+
+	if ( $variation ) {
+		$variation_attributes = $variation->get_attributes();
+
+		echo '<pre>';
+		var_dump( $variation_attributes );
+		echo '</pre>';
+		wp_die();
+}
+}
+
+add_action( 'init', 'foobar' );
+
