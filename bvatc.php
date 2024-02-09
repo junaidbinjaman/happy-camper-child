@@ -103,20 +103,3 @@ function bvatc_foobar() {
 }
 
 add_action( 'wp_ajax_bvatc_foobar', 'bvatc_foobar' );
-
-function foobar() {
-	$variation_id = 161;
-	$variation = wc_get_product( $variation_id );
-
-	if ( $variation ) {
-		$variation_attributes = $variation->get_attributes();
-
-		echo '<pre>';
-		var_dump( $variation_attributes );
-		echo '</pre>';
-		wp_die();
-}
-}
-
-add_action( 'init', 'foobar' );
-

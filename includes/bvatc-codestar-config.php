@@ -49,7 +49,7 @@ if ( class_exists( 'CSF' ) ) {
 
 				// Select with AJAX search Pages.
 				array(
-					'id'          => 'opt-select-8',
+					'id'          => 'bvatc-product-selector',
 					'type'        => 'select',
 					'title'       => 'Select a product',
 					'placeholder' => 'No product selected',
@@ -58,6 +58,52 @@ if ( class_exists( 'CSF' ) ) {
 					'options'     => 'posts',
 					'query_args'  => array(
 						'post_type' => 'product',
+					),
+				),
+
+				array(
+					'id'           => 'bvatc-color-selector',
+					'type'         => 'group',
+					'title'        => 'Colors',
+					'button_title' => 'Add a New Color',
+					'fields'       => array(
+						array(
+							'id'    => 'bvatc-color-name',
+							'type'  => 'text',
+							'title' => 'Color Name',
+							'desc'  => 'PLEASE NOTE: Color name must match with woocommerce product attribute name',
+						),
+						array(
+							'id'    => 'bvatc-color-code',
+							'type'  => 'color',
+							'title' => 'Color Code',
+						),
+					),
+					'default'      => array(
+						array(
+							'bvatc-color-name' => 'Default color',
+							'bvatc-color-code' => '#d1d1d1',
+						),
+					),
+				),
+
+				array(
+					'id'           => 'bvatc-color-selector',
+					'type'         => 'group',
+					'title'        => 'Sizes',
+					'button_title' => 'Add a New Size',
+					'fields'       => array(
+						array(
+							'id'    => 'bvatc-size-name',
+							'type'  => 'text',
+							'title' => 'Size Name',
+							'desc'  => 'PLEASE NOTE: Size name must match with woocommerce product attribute name',
+						),
+					),
+					'default'      => array(
+						array(
+							'bvatc-size-name' => 'Default size',
+						),
 					),
 				),
 
