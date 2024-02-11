@@ -2,3 +2,21 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.bvatc-image {
+  width: 450px;
+  height: 600px;
+  border-radius: 8px;
+}
+
+.bvatc-title {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}

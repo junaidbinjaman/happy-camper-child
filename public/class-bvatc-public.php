@@ -140,7 +140,7 @@ class Bvatc_Public {
 			'description'         => __( 'Product bulk variation add to cart', 'bvatc' ),
 			'labels'              => $labels,
 			'menu_icon'           => 'dashicons-products',
-			'supports'            => array( 'title', 'revisions', 'author', 'page-attributes', 'post-formats' ),
+			'supports'            => array( 'title', 'revisions', 'author', 'page-attributes', 'post-formats', 'thumbnail' ),
 			'taxonomies'          => array(),
 			'public'              => true,
 			'show_ui'             => true,
@@ -157,5 +157,20 @@ class Bvatc_Public {
 			'capability_type'     => 'post',
 		);
 		register_post_type( 'bulkvariation', $args );
+	}
+
+	/**
+	 * Handle the visibility of single bulk variation
+	 *
+	 * @param mixed $template single post template path.
+	 * @return string
+	 */
+	public function single_bulk_variation_handler( $template ) {
+		global $post;
+		$template = plugin_dir_path( __DIR__ ) . 'public/partials/single-bulk-variation.php';
+
+		if ( isset( $post->post_type ) && 'bulkvariation' === $post->post_type ) {
+			return $template;
+		}
 	}
 }

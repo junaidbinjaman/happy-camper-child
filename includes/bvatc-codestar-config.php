@@ -47,20 +47,6 @@ if ( class_exists( 'CSF' ) ) {
 			'title'  => '',
 			'fields' => array(
 
-				// Select with AJAX search Pages.
-				array(
-					'id'          => 'bvatc-product-selector',
-					'type'        => 'select',
-					'title'       => 'Select a product',
-					'placeholder' => 'No product selected',
-					'chosen'      => true,
-					'ajax'        => true,
-					'options'     => 'posts',
-					'query_args'  => array(
-						'post_type' => 'product',
-					),
-				),
-
 				array(
 					'id'           => 'bvatc-color-selector',
 					'type'         => 'group',
@@ -73,22 +59,29 @@ if ( class_exists( 'CSF' ) ) {
 							'title' => 'Color Name',
 							'desc'  => 'PLEASE NOTE: Color name must match with woocommerce product attribute name',
 						),
+						// Select with AJAX search Pages.
+						array(
+							'id'          => 'bvatc-color-attr-term',
+							'type'        => 'select',
+							'title'       => 'Select an attribute term',
+							'placeholder' => 'No term selected',
+							'chosen'      => true,
+							'ajax'        => true,
+							'options'     => 'tags',
+							'query_args'  => array(
+								'taxonomy' => 'pa_color',
+							),
+						),
 						array(
 							'id'    => 'bvatc-color-code',
 							'type'  => 'color',
 							'title' => 'Color Code',
 						),
 					),
-					'default'      => array(
-						array(
-							'bvatc-color-name' => 'Default color',
-							'bvatc-color-code' => '#d1d1d1',
-						),
-					),
 				),
 
 				array(
-					'id'           => 'bvatc-color-selector',
+					'id'           => 'bvatc-size-selector',
 					'type'         => 'group',
 					'title'        => 'Sizes',
 					'button_title' => 'Add a New Size',
@@ -97,7 +90,20 @@ if ( class_exists( 'CSF' ) ) {
 							'id'    => 'bvatc-size-name',
 							'type'  => 'text',
 							'title' => 'Size Name',
-							'desc'  => 'PLEASE NOTE: Size name must match with woocommerce product attribute name',
+						),
+
+						// Select with AJAX search Pages.
+						array(
+							'id'          => 'bvatc-size-product',
+							'type'        => 'select',
+							'title'       => 'Select a product',
+							'placeholder' => 'No product selected',
+							'chosen'      => true,
+							'ajax'        => true,
+							'options'     => 'posts',
+							'query_args'  => array(
+								'post_type' => 'product',
+							),
 						),
 					),
 					'default'      => array(
@@ -105,6 +111,13 @@ if ( class_exists( 'CSF' ) ) {
 							'bvatc-size-name' => 'Default size',
 						),
 					),
+				),
+
+				array(
+					'id'      => 'bvatc_unit_price',
+					'type'    => 'number',
+					'title'   => 'Per unit price',
+					'default' => '00',
 				),
 
 			),

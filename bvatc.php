@@ -103,3 +103,36 @@ function bvatc_foobar() {
 }
 
 add_action( 'wp_ajax_bvatc_foobar', 'bvatc_foobar' );
+
+
+function foobar() {
+	// Assuming you have a variation ID
+$variation_id = 164; // Replace 123 with your actual variation ID
+
+// Get the WC_Product_Variation object
+$variation = new WC_Product_Variation($variation_id);
+
+// Get the attributes of the variation
+$attributes = $variation->get_attributes();
+
+// Output the attributes
+foreach ($attributes as $attribute => $value) {
+    echo "Attribute: " . $attribute . " - Value: " . $value . "<br>";
+
+	// The taxonomy name is often the attribute key, but it needs to be in the 'pa_' format
+    $taxonomy = $attribute; // Assuming it's already in the correct format, e.g., 'pa_color'
+    
+    // Get the term object using the attribute value and taxonomy
+    $term = get_term_by('slug', $value, $taxonomy);
+    
+    if ($term && !is_wp_error($term)) {
+        // Now you have the term ID for the attribute value
+        $term_id = $term->term_id;
+        echo "Attribute: " . $taxonomy . " - Value: " . $value . " - Term ID: " . $term_id . "<br>";
+    }
+}
+}
+
+// add_action( 'init', 'foobar' );
+
+
