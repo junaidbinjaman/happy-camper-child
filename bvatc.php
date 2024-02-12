@@ -123,9 +123,12 @@ add_action( 'wp_ajax_bvatc_foobar', 'bvatc_foobar' );
 
 function bvatc_variation_id_generator() {
 	$products = $_POST['products'] ? $_POST['products'] : 0;
-	$quantity = $_POST['term_id'] ? $_POST['term_id'] : 0;
+	$term_id = $_POST['term_id'] ? $_POST['term_id'] : 0;
 
-	echo wp_json_encode( $products );
+	$find = new Bvatc_Utility();
+	$result = $find->variation_finder( $products, $term_id );
+
+	echo wp_json_encode( $result );
 	wp_die();
 }
 

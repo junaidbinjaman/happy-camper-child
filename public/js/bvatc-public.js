@@ -44,7 +44,7 @@
   });
 })(jQuery);
 
-function bvatc_addToCartHandler($, productID, quantity = 1, callback) {
+function bvatc_addToCartHandler($, productID, quantity = 1) {
   $.ajax({
     type: 'POST',
     url: window.bvatc_ajaxurl,
@@ -55,21 +55,13 @@ function bvatc_addToCartHandler($, productID, quantity = 1, callback) {
     },
     success: function (response) {
       response = JSON.parse(response);
-      callback(null, response);
+      console.log(response);
     },
     error: function (xhr, status, error) {
-      callback(error, null);
+      console.log(error);
     },
   });
 }
-
-bvatc_addToCartHandler($, productID, quantity, function (error, response) {
-  if (error) {
-    console.error('Error:', error);
-  } else {
-    console.log('Response:', response);
-  }
-});
 
 function bvatc_userSelection($) {
   const termID = $('.bvatc-color-selector-option-selected').data('term-id');
@@ -95,10 +87,18 @@ function bvatc_userSelection($) {
     },
     success: function (response) {
       response = JSON.parse(response);
-      console.log(response);
+      handleAddToCart($, response)
     },
     error: function (xhr, status, error) {
       console.log(error);
     },
   });
+
+  function handleAddToCart($, response) {
+    console.log(response);
+    for (let i = 0; i <= response.length; i++) {
+      const product = response[i];
+      bvatc_addToCartHandler($, product.variation_id, product.qty);
+    }
+  }
 }
