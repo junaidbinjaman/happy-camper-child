@@ -167,10 +167,15 @@ class Bvatc_Public {
 	 */
 	public function single_bulk_variation_handler( $template ) {
 		global $post;
-		$template = plugin_dir_path( __DIR__ ) . 'public/partials/single-bulk-variation.php';
 
-		if ( isset( $post->post_type ) && 'bulkvariation' === $post->post_type ) {
-			return $template;
+		$plugin_dir_path = plugin_dir_path( __FILE__ );
+
+		$custom_template = $plugin_dir_path . 'partials/single-bulk-variation.php';
+
+		if ( isset( $post->post_type ) && 'bulkvariation' === $post->post_type && file_exists( $custom_template ) ) {
+			return $custom_template;
 		}
+
+		return $template;
 	}
 }
