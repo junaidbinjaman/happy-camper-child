@@ -1,4 +1,4 @@
-# Happy Camper Child Theme
+# Happy Camper Child Theme ![License](https://img.shields.io/badge/license-restricted-red)
 
 Welcome to the Happy Camper Child Theme project. This theme is designed to offer a unique and enhanced experience for the Happy Camper website. As a child theme, it inherits the functionality of the parent astra theme but with added customizations and features that make site stand out.
 
