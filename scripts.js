@@ -15,8 +15,8 @@
     happyCamperAgeChecker();
     storeEligibilityData($);
     searchToolTipHandler($);
-    
-    if(window.innerWidth >= 1024) {
+
+    if (window.innerWidth >= 1024) {
       productFilterToggleHandler($);
     }
 
@@ -25,18 +25,18 @@
     $('.single_add_to_cart_button').html(btnText);
   });
 
-  $(document).on('elementor/popup/show', function(event, id, instance) {
-
+  $(document).on('elementor/popup/show', function (event, id, instance) {
     // Run the function for mobile filter
-    if (id === 2281) { // Greenhouse filter
+    if (id === 2281) {
+      // Greenhouse filter
       productFilterToggleHandler($);
     }
 
-    if (id === 2633) { // Product filter
+    if (id === 2633) {
+      // Product filter
       productFilterToggleHandler($);
     }
-  })
-
+  });
 })(jQuery);
 
 function handleMegaMenuVisibility($) {
@@ -128,26 +128,32 @@ function storeEligibilityData($) {
 }
 
 function searchToolTipHandler($) {
-  var first = '.header-seconday-menu ul > li:nth-child(1)';
-  var second = '.header-seconday-menu ul > li:nth-child(2)';
-  var container = '.search-form-container';
+  var searchBtn = $('.header-secondary-menu ul > li:nth-child(1)');
+  var closeBtn = $('.header-secondary-menu ul > li:nth-child(2)');
+  var searchContainer = $('.search-form-container');
 
-  $(second).hide();
-  $(container).hide();
+  closeBtn.hide();
+  searchContainer.hide();
 
-  $(first).on('click', function () {
-    $(this).hide();
+  searchBtn.on('click', toggleVisibility);
+  closeBtn.on('click', toggleVisibility);
 
-    $(second).show();
-    $(container).show();
-  });
+  function toggleVisibility() {
+    searchBtn.toggle();
+    closeBtn.toggle();
+    searchContainer.toggle();
+  }
 
-  $(second).on('click', function () {
-    $(this).hide();
-
-    $(first).show();
-    $(container).hide();
-  });
+  $(document).mouseup(function(e) {
+    if (!searchContainer.is(e.target) && searchContainer.has(e.target).length === 0 && 
+        !searchBtn.is(e.target) && searchBtn.has(e.target).length === 0 && 
+        !closeBtn.is(e.target) && closeBtn.has(e.target).length === 0) {
+          searchBtn.show();
+          closeBtn.hide();
+          searchContainer.hide();
+    }
+});
+  
 }
 
 function productFilterToggleHandler($) {

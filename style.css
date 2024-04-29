@@ -17,8 +17,8 @@ Updated: 2024-04-07 23:27:04
     z-index: 999 !important;
 }
 
-.header-seconday-menu ul > li:nth-child(1),
-.header-seconday-menu ul > li:nth-child(2) {
+.header-secondary-menu ul > li:nth-child(1),
+.header-secondary-menu ul > li:nth-child(2) {
     cursor: pointer;
 }
 
