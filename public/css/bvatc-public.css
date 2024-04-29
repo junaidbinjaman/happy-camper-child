@@ -1,0 +1,172 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.bvatc-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.bvatc-image {
+  width: 450px;
+  height: 600px;
+  border-radius: 8px;
+}
+
+.bvatc-content {
+  width: 545px;
+  height: 600px;
+  margin-left: 30px;
+}
+
+.bvatc-title {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.bvatc-bulk-variation-color-selector {
+  margin-bottom: 30px;
+}
+
+.bvatc-color-selector-title {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.bvatc-color-selector-option {
+  background: #f5f5dc;
+  color: #fff;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 42px;
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.bvatc-color-selector-option:active {
+  transform: scale(0.7);
+}
+
+.bvatc-color-selector-option-selected {
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.55);
+}
+
+.bvatc-bulk-variation-size-selector div {
+  display: flex;
+  align-items: center;
+}
+
+.bvatc-size-selector-title {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.bvatc-size-selector-input-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.bvatc-size-selector-input-boxes span {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  line-height: normal;
+  margin-bottom: -20px;
+}
+
+.bvatc-size-selector-input-boxes input {
+  width: 70px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: #fff;
+  text-align: center;
+}
+
+.bvatc-bulk-variation-size-selector {
+  margin-bottom: 30px;
+}
+
+.bvatc-available-stock-selector-title {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.bvatc-bulk-variation-available-stock div {
+  display: flex;
+  align-items: center;
+}
+
+.bvatc-available-stock-input-boxes {
+  width: 70px;
+  height: 40px;
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.bvatc-per-unit-price {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.bvatc-product-add-to-cart {
+  font-family: 'Montserrat', sans-serif;
+  background: black;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  border-radius: 8px;
+}
