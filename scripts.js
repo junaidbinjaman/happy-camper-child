@@ -52,21 +52,25 @@ function getCookie(name) {
 }
 
 function handleMegaMenuVisibility($) {
-  let megaMenuContainer = '.mega-menu-container';
+  let megaMenuContainer = $('.mega-menu-container');
+
+  megaMenuContainer.hide();
 
   $('.menu-item-2749').on('mouseenter', function () {
-    $(megaMenuContainer).show();
+    megaMenuContainer.show();
   });
 
-  $(megaMenuContainer)
+  megaMenuContainer
     .on('mouseenter', function () {
-      $(megaMenuContainer).show();
+      megaMenuContainer.show();
     })
     .on('mouseleave', function () {
-      $(megaMenuContainer).hide();
+      megaMenuContainer.hide();
     });
 
-  $(megaMenuContainer).hide();
+  $('.main-navbar').on('mouseleave', function () {
+    megaMenuContainer.hide();
+  });
 }
 
 function mobileMegaMenuHandler($) {
