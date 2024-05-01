@@ -39,6 +39,18 @@
   });
 })(jQuery);
 
+function getCookie(name) {
+  let cookieArray = document.cookie.split(';');
+  for (let i = 0; i < cookieArray.length; i++) {
+    let cookiePair = cookieArray[i].trim();
+    if (cookiePair.startsWith(name + '=')) {
+      cookiePair = cookiePair.substring(name.length + 1);
+      return cookiePair.slice(0, -1);
+    }
+  }
+  return null;
+}
+
 function handleMegaMenuVisibility($) {
   let megaMenuContainer = '.mega-menu-container';
 
@@ -112,18 +124,25 @@ function moodSelectorHandler($) {
 }
 
 function happyCamperAgeChecker() {
-  let isEligible = localStorage.getItem('isEligible');
+  let isEligible = getCookie('isEligible');
   let path = location.pathname;
 
-  if (!isEligible) {
-    if (path !== '/age-check/' && path !== '/page-for-under-21/')
-      location.href = '/age-check/';
+  if (isEligible) {
+    let currentURL = sessionStorage.getItem('currentURL');
+    sessionStorage.removeItem('currentURL');
+    currentURL && (location.href = currentURL);
+    return;
+  }
+
+  if (path !== '/age-check/' && path !== '/page-for-under-21/') {
+    sessionStorage.setItem('currentURL', location.href);
+    location.href = '/age-check/';
   }
 }
 
 function storeEligibilityData($) {
   $('.happy-camper-eligible-customer-btn').on('click', function () {
-    localStorage.setItem('isEligible', true);
+    document.cookie = 'isEligible=true; path=/; samesite=strict';
   });
 }
 
@@ -144,16 +163,20 @@ function searchToolTipHandler($) {
     searchContainer.toggle();
   }
 
-  $(document).mouseup(function(e) {
-    if (!searchContainer.is(e.target) && searchContainer.has(e.target).length === 0 && 
-        !searchBtn.is(e.target) && searchBtn.has(e.target).length === 0 && 
-        !closeBtn.is(e.target) && closeBtn.has(e.target).length === 0) {
-          searchBtn.show();
-          closeBtn.hide();
-          searchContainer.hide();
+  $(document).mouseup(function (e) {
+    if (
+      !searchContainer.is(e.target) &&
+      searchContainer.has(e.target).length === 0 &&
+      !searchBtn.is(e.target) &&
+      searchBtn.has(e.target).length === 0 &&
+      !closeBtn.is(e.target) &&
+      closeBtn.has(e.target).length === 0
+    ) {
+      searchBtn.show();
+      closeBtn.hide();
+      searchContainer.hide();
     }
-});
-  
+  });
 }
 
 function productFilterToggleHandler($) {
