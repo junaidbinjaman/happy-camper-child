@@ -7,23 +7,27 @@ Author URI: https://junaidbinjaman.com
 Description: This is an astra-child theme developed by Junaid Bin Jaman for Happy Camper.
 Version: 1.0.0
 Updated: 2024-04-07 23:27:04
-
 */
 
-/* Mega menu styles */
+/* ----------------------------------------
+    Global Styles
+------------------------------------------- */
+.happy-camper-general-btn {
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+
+.happy-camper-general-btn:active {
+    transform: scale(0.7);
+}
+
+/* ----------------------------------------
+    Mega menu styles
+------------------------------------------- */
 .mega-menu-container,
 .search-form-container {
     position: absolute !important;
     z-index: 999 !important;
-}
-
-.header-secondary-menu ul > li:nth-child(1),
-.header-secondary-menu ul > li:nth-child(2) {
-    cursor: pointer;
-}
-
-.section2, .section1 {
-    transition: all ease-in-out 0.3s;
 }
 
 .mobile-mega-menu-greenhouse-btn,
@@ -41,16 +45,25 @@ Updated: 2024-04-07 23:27:04
     cursor: pointer;
 }
 
-.happy-camper-general-btn {
+/* ----------------------------------------
+    Header search show and clone buttons
+------------------------------------------- */
+.header-secondary-menu ul > li:nth-child(1),
+.header-secondary-menu ul > li:nth-child(2) {
     cursor: pointer;
-    transition: all ease-in-out 0.2s;
 }
 
-.happy-camper-general-btn:active {
-    transform: scale(0.7);
-}
-
+/* ----------------------------------------
+    Product filter styles
+------------------------------------------- */
 .product-filter-head li:nth-child(1),
 .product-filter-head li:nth-child(2) {
     cursor: pointer;
+}
+
+/* ----------------------------------------
+    Unknown section styles
+------------------------------------------- */
+.section2, .section1 {
+    transition: all ease-in-out 0.3s;
 }

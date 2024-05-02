@@ -45,10 +45,28 @@
   });
 })(jQuery);
 
+/**
+ * UTILITY FUNCTIONS
+ *
+ * This section contains utility functions.
+ * These functions do not directly implement any features on the frontend by themselves.
+ * Rather, they support other functions by addressing common, smaller-scale problems,
+ * thereby facilitating the compvarion of larger tasks.
+ */
+
+/**
+ * Get the cookie value.
+ *
+ * The function accepts cookie name as an input
+ * and returns the cookie value.
+ *
+ * @param {string} name cookie name;
+ * @returns {string} cookie value
+ */
 function getCookie(name) {
-  let cookieArray = document.cookie.split(';');
-  for (let i = 0; i < cookieArray.length; i++) {
-    let cookiePair = cookieArray[i].trim();
+  var cookieArray = document.cookie.split(';');
+  for (var i = 0; i < cookieArray.length; i++) {
+    var cookiePair = cookieArray[i].trim();
     if (cookiePair.startsWith(name + '=')) {
       cookiePair = cookiePair.substring(name.length + 1);
       return cookiePair.slice(0, -1);
@@ -57,12 +75,28 @@ function getCookie(name) {
   return null;
 }
 
+/**
+ * FEATURE FUNCTIONS
+ *
+ * This section contains feature functions that are directly responsible for handling specific features on the frontend.
+ * These functions implement the core functionality of user-facing elements, managing interactions and
+ * ensuring a responsive and dynamic user experience. They often utilize utility functions to handle
+ * sub-tasks, allowing for cleaner and more modular code structure.
+ */
+
+/**
+ * The function toggle the mega menu
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function handleMegaMenuVisibility($) {
-  let megaMenuContainer = $('.mega-menu-container');
+  var megaMenuContainer = $('.mega-menu-container');
+  var mainNavbar = $('.main-navbar');
+  var megaMenuNavItem = $('.menu-item-2749');
 
   megaMenuContainer.hide();
 
-  $('.menu-item-2749').on('mouseenter', function () {
+  megaMenuNavItem.on('mouseenter', function () {
     megaMenuContainer.show();
   });
 
@@ -74,13 +108,19 @@ function handleMegaMenuVisibility($) {
       megaMenuContainer.hide();
     });
 
-  $('.main-navbar').on('mouseleave', function () {
+  mainNavbar.on('mouseleave', function () {
     megaMenuContainer.hide();
   });
 }
 
+/**
+ * The function toggle the mega menu on mobile
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function mobileMegaMenuHandler($) {
-  const megaMenuClasses = [
+  var mobileMegaMenu = 'mobile-mega-menu';
+  var megaMenuClasses = [
     'greenhouse',
     'bodega',
     'spa',
@@ -89,37 +129,43 @@ function mobileMegaMenuHandler($) {
     'feeling',
   ];
 
-  for (let i = 0; i < megaMenuClasses.length; i++) {
-    const menuClass = megaMenuClasses[i];
-
-    $(document).on('elementor/popup/show', function (event, popupData) {
-      if (popupData === 817) {
+  $(document).on('elementor/popup/show', function (event, id, instance) {
+    if (id === 817) {
+      for (let i = 0; i < megaMenuClasses.length; i++) {
+        const menuClass = megaMenuClasses[i];
         onPopupOpen(menuClass);
       }
-    });
-  }
+    }
+  });
 
   function onPopupOpen(menuClass) {
-    $(`.mobile-mega-menu-${menuClass}`).hide();
-    $(`.mobile-mega-menu-${menuClass}-btn`).on('click', function () {
-      $('.mobile-mega-menu').hide();
-      $(`.mobile-mega-menu-${menuClass}`).show();
+    console.log(menuClass);
+    $(`.${mobileMegaMenu}-${menuClass}`).hide();
+
+    $(`.${mobileMegaMenu}-${menuClass}-btn`).on('click', function () {
+      $(`.${mobileMegaMenu}`).hide();
+      $(`.${mobileMegaMenu}-${menuClass}`).show();
     });
 
-    $(`.mobile-mega-menu-${menuClass}-back-btn`).on('click', function () {
-      $(`.mobile-mega-menu-${menuClass}`).hide();
-      $('.mobile-mega-menu').show();
+    $(`.${mobileMegaMenu}-${menuClass}-back-btn`).on('click', function () {
+      $(`.${mobileMegaMenu}-${menuClass}`).hide();
+      $(`.${mobileMegaMenu}`).show();
     });
   }
 }
 
+/**
+ * The function handles click events on mood selector btn on the home page
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function moodSelectorHandler($) {
   $('.mood-selector-btn').on('click', function () {
-    let selectedMood = $(this).attr('data-mood');
+    var selectedMood = $(this).attr('data-mood');
     localStorage.setItem('selectedModeOnHomePage', selectedMood);
   });
 
-  let selectedMood = localStorage.getItem('selectedModeOnHomePage');
+  var selectedMood = localStorage.getItem('selectedModeOnHomePage');
 
   $(`.${selectedMood}-mood-selector-btn`).css({
     'background-color': '#c3c1c0',
@@ -133,12 +179,18 @@ function moodSelectorHandler($) {
   });
 }
 
+/**
+ * The function redirects user to age-check page when a users visit the site
+ * to ensures, the user is over 21.
+ *
+ * @returns void
+ */
 function happyCamperAgeChecker() {
-  let isEligible = getCookie('isEligible');
-  let path = location.pathname;
+  var isEligible = getCookie('isEligible');
+  var path = location.pathname;
 
   if (isEligible) {
-    let currentURL = sessionStorage.getItem('currentURL');
+    var currentURL = sessionStorage.getItem('currentURL');
     sessionStorage.removeItem('currentURL');
     currentURL && (location.href = currentURL);
     return;
@@ -150,12 +202,25 @@ function happyCamperAgeChecker() {
   }
 }
 
+/**
+ * The function make the user eligible to browse the website 
+ * when whe user clicks on the eligible btn
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function storeEligibilityData($) {
-  $('.happy-camper-eligible-customer-btn').on('click', function () {
+  var eligibleCustomerBtn = $('.happy-camper-eligible-customer-btn')
+
+  eligibleCustomerBtn.on('click', function () {
     document.cookie = 'isEligible=true; path=/; samesite=strict';
   });
 }
 
+/**
+ * The function handles the search container and buttons toggle
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function searchToolTipHandler($) {
   var searchBtn = $('.header-secondary-menu ul > li:nth-child(1)');
   var closeBtn = $('.header-secondary-menu ul > li:nth-child(2)');
@@ -189,11 +254,20 @@ function searchToolTipHandler($) {
   });
 }
 
+/**
+ * The function handles the product filter body toggle
+ *
+ * When a user clicks on the filter title/label or the icons,
+ * it toggles the filter listing 
+ *
+ * @param {jQuery} $ jQuery reference
+ */
 function productFilterToggleHandler($) {
   var filterCLassNamePrefix = ['tier', 'cannabinoid', 'vibe'];
 
   for (let i = 0; i < filterCLassNamePrefix.length; i++) {
-    const prefix = filterCLassNamePrefix[i];
+    var prefix = filterCLassNamePrefix[i];
+    console.log(prefix)
 
     $(`.${prefix}-filter`)
       .find('.product-filter-head ul > li:nth-child(1)')
@@ -203,7 +277,7 @@ function productFilterToggleHandler($) {
       $(this).find('ul > li:nth-child(1)').toggle();
       $(this).find('ul > li:nth-child(2)').toggle();
 
-      $(`.${prefix}-filter .product-filter-body`).toggle();
+      $(this).siblings().toggle();
     });
   }
 }
