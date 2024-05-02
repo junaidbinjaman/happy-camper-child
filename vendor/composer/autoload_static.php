@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1
+class ComposerStaticInita089414172ac32e68c160578ac9feed2
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -13,7 +13,7 @@ class ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1
         ),
         'J' => 
         array (
-            'Junaidbinjaman\\AstraChild\\' => 26,
+            'Junaidbinjaman\\HappyCamperChild\\' => 32,
         ),
     );
 
@@ -22,7 +22,7 @@ class ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'Junaidbinjaman\\AstraChild\\' => 
+        'Junaidbinjaman\\HappyCamperChild\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -72,9 +72,9 @@ class ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit650e9a8e21c3f0adf807fd05965b87c1::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita089414172ac32e68c160578ac9feed2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita089414172ac32e68c160578ac9feed2::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita089414172ac32e68c160578ac9feed2::$classMap;
 
         }, null, ClassLoader::class);
     }

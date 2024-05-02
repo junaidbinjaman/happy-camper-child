@@ -1,8 +1,8 @@
 {
-    "name": "junaidbinjaman/astra-child",
+    "name": "junaidbinjaman/happy-camper-child",
     "autoload": {
         "psr-4": {
-            "Junaidbinjaman\\AstraChild\\": "src/"
+            "Junaidbinjaman\\HappyCamperChild\\": "src/"
         }
     },
     "authors": [
@@ -11,12 +11,12 @@
             "email": "me@junaidbinjaman.com"
         }
     ],
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0"
+    },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
-    },
-    "require-dev": {
-        "wp-coding-standards/wpcs": "^3.0"
     }
 }

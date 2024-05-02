@@ -20,20 +20,26 @@
       productFilterToggleHandler($);
     }
 
+    // Change the add to cart btn text on single product page
     var btnText =
       'Add To Cart <span class="dashicons dashicons-arrow-right-alt"></span>';
     $('.single_add_to_cart_button').html(btnText);
   });
 
   $(document).on('elementor/popup/show', function (event, id, instance) {
-    // Run the function for mobile filter
+    /**
+     * Run productFilterToggleHandler function on mobile
+     * when the popup opens on greenhouse page
+     */
     if (id === 2281) {
-      // Greenhouse filter
       productFilterToggleHandler($);
     }
 
+    /**
+     * Run productFilterToggleHandler function on mobile
+     * when the popup opens on all the shop page other than greenhouse
+     */
     if (id === 2633) {
-      // Product filter
       productFilterToggleHandler($);
     }
   });

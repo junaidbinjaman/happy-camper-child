@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'junaidbinjaman/astra-child',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'junaidbinjaman/happy-camper-child',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '59584fc65fe7ae242b0c0a873d938a430617e51d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,10 +19,10 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'junaidbinjaman/astra-child' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'junaidbinjaman/happy-camper-child' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '59584fc65fe7ae242b0c0a873d938a430617e51d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
