@@ -12,7 +12,7 @@
     handleMegaMenuVisibility($);
     mobileMegaMenuHandler($);
     moodSelectorHandler($);
-    // happyCamperAgeChecker();
+    happyCamperAgeChecker();
     storeEligibilityData($);
     searchToolTipHandler($);
 
@@ -280,21 +280,4 @@ function productFilterToggleHandler($) {
       $(this).siblings().toggle();
     });
   }
-}
-
-function ageCheckerAjaxHandler($) {
-  $.ajax({
-    type: 'POST',
-    url: wp_ajax.url,
-    data: {
-      action: 'age_checker_redirects',
-      nonce: wp_ajax.nonce
-    },
-    success: function(res) {
-      console.log(res);
-    },
-    error: function(xhr, status, error) {
-      console.log(error);
-    }
-  })
 }
