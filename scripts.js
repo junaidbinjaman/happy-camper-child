@@ -196,7 +196,7 @@ function happyCamperAgeChecker() {
     return;
   }
 
-  if (path !== '/age-check/' && path !== '/page-for-under-21/') {
+  if (path !== '/age-check/' && path !== '/page-for-under-21/' && path !== '/terms-and-conditions/') {
     sessionStorage.setItem('currentURL', location.href);
     location.href = '/age-check/';
   }

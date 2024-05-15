@@ -238,3 +238,21 @@ function skip_customer_dashboard( $wp ) {
 }
 
 add_action( 'parse_request', 'skip_customer_dashboard' );
+
+/**
+ * The function rephrase the "Lost your password?" text
+ *
+ * @param string $translated_text The translated text.
+ * @param string $text The text to replace.
+ * @param string $domain The text domain.
+ * @return string
+ */
+function change_lost_your_password_text( $translated_text, $text, $domain ) {
+	if ( 'Lost your password?' === $text && 'woocommerce' === $domain ) {
+		$translated_text = 'Forgot your password?';
+	}
+
+	return $translated_text;
+}
+
+add_filter( 'gettext', 'change_lost_your_password_text', 20, 3 );
