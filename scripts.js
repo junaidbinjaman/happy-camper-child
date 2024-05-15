@@ -1,48 +1,48 @@
 (function ($) {
-  'use strict';
-
-  /**
-   * All of the code for public-facing JavaScript source
-   * should reside in this file.
-   *
-   * This enables to define handlers, for when the DOM is ready:
-   */
-
-  $(function () {
-    handleMegaMenuVisibility($);
-    mobileMegaMenuHandler($);
-    moodSelectorHandler($);
-    happyCamperAgeChecker();
-    storeEligibilityData($);
-    searchToolTipHandler($);
-
-    if (window.innerWidth >= 1024) {
-      productFilterToggleHandler($);
-    }
-
-    // Change the add to cart btn text on single product page
-    var btnText =
-      'Add To Cart <span class="dashicons dashicons-arrow-right-alt"></span>';
-    $('.single_add_to_cart_button').html(btnText);
-  });
-
-  $(document).on('elementor/popup/show', function (event, id, instance) {
-    /**
-     * Run productFilterToggleHandler function on mobile
-     * when the popup opens on greenhouse page
-     */
-    if (id === 2281) {
-      productFilterToggleHandler($);
-    }
+    'use strict';
 
     /**
-     * Run productFilterToggleHandler function on mobile
-     * when the popup opens on all the shop page other than greenhouse
+     * All of the code for public-facing JavaScript source
+     * should reside in this file.
+     *
+     * This enables to define handlers, for when the DOM is ready:
      */
-    if (id === 2633) {
-      productFilterToggleHandler($);
-    }
-  });
+
+    $(function () {
+        handleMegaMenuVisibility($);
+        mobileMegaMenuHandler($);
+        moodSelectorHandler($);
+        happyCamperAgeChecker();
+        storeEligibilityData($);
+        searchToolTipHandler($);
+
+        if (window.innerWidth >= 1024) {
+            productFilterToggleHandler($);
+        }
+
+        // Change the add to cart btn text on single product page
+        var btnText =
+            'Add To Cart <span class="dashicons dashicons-arrow-right-alt"></span>';
+        $('.single_add_to_cart_button').html(btnText);
+    });
+
+    $(document).on('elementor/popup/show', function (event, id, instance) {
+        /**
+         * Run productFilterToggleHandler function on mobile
+         * when the popup opens on greenhouse page
+         */
+        if (id === 2281) {
+            productFilterToggleHandler($);
+        }
+
+        /**
+         * Run productFilterToggleHandler function on mobile
+         * when the popup opens on all the shop page other than greenhouse
+         */
+        if (id === 2633) {
+            productFilterToggleHandler($);
+        }
+    });
 })(jQuery);
 
 /**
@@ -64,15 +64,15 @@
  * @returns {string} cookie value
  */
 function getCookie(name) {
-  var cookieArray = document.cookie.split(';');
-  for (var i = 0; i < cookieArray.length; i++) {
-    var cookiePair = cookieArray[i].trim();
-    if (cookiePair.startsWith(name + '=')) {
-      cookiePair = cookiePair.substring(name.length + 1);
-      return cookiePair.slice(0, -1);
+    var cookieArray = document.cookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookiePair = cookieArray[i].trim();
+        if (cookiePair.startsWith(name + '=')) {
+            cookiePair = cookiePair.substring(name.length + 1);
+            return cookiePair.slice(0, -1);
+        }
     }
-  }
-  return null;
+    return null;
 }
 
 /**
@@ -90,27 +90,27 @@ function getCookie(name) {
  * @param {jQuery} $ jQuery reference
  */
 function handleMegaMenuVisibility($) {
-  var megaMenuContainer = $('.mega-menu-container');
-  var mainNavbar = $('.main-navbar');
-  var megaMenuNavItem = $('.menu-item-2749');
+    var megaMenuContainer = $('.mega-menu-container');
+    var mainNavbar = $('.main-navbar');
+    var megaMenuNavItem = $('.menu-item-2749');
 
-  megaMenuContainer.hide();
+    megaMenuContainer.hide();
 
-  megaMenuNavItem.on('mouseenter', function () {
-    megaMenuContainer.show();
-  });
-
-  megaMenuContainer
-    .on('mouseenter', function () {
-      megaMenuContainer.show();
-    })
-    .on('mouseleave', function () {
-      megaMenuContainer.hide();
+    megaMenuNavItem.on('mouseenter', function () {
+        megaMenuContainer.show();
     });
 
-  mainNavbar.on('mouseleave', function () {
-    megaMenuContainer.hide();
-  });
+    megaMenuContainer
+        .on('mouseenter', function () {
+            megaMenuContainer.show();
+        })
+        .on('mouseleave', function () {
+            megaMenuContainer.hide();
+        });
+
+    mainNavbar.on('mouseleave', function () {
+        megaMenuContainer.hide();
+    });
 }
 
 /**
@@ -119,39 +119,39 @@ function handleMegaMenuVisibility($) {
  * @param {jQuery} $ jQuery reference
  */
 function mobileMegaMenuHandler($) {
-  var mobileMegaMenu = 'mobile-mega-menu';
-  var megaMenuClasses = [
-    'greenhouse',
-    'bodega',
-    'spa',
-    'vapes',
-    'cannabinoid',
-    'feeling',
-  ];
+    var mobileMegaMenu = 'mobile-mega-menu';
+    var megaMenuClasses = [
+        'greenhouse',
+        'bodega',
+        'spa',
+        'vapes',
+        'cannabinoid',
+        'feeling',
+    ];
 
-  $(document).on('elementor/popup/show', function (event, id, instance) {
-    if (id === 817) {
-      for (let i = 0; i < megaMenuClasses.length; i++) {
-        const menuClass = megaMenuClasses[i];
-        onPopupOpen(menuClass);
-      }
+    $(document).on('elementor/popup/show', function (event, id, instance) {
+        if (id === 817) {
+            for (let i = 0; i < megaMenuClasses.length; i++) {
+                const menuClass = megaMenuClasses[i];
+                onPopupOpen(menuClass);
+            }
+        }
+    });
+
+    function onPopupOpen(menuClass) {
+        console.log(menuClass);
+        $(`.${mobileMegaMenu}-${menuClass}`).hide();
+
+        $(`.${mobileMegaMenu}-${menuClass}-btn`).on('click', function () {
+            $(`.${mobileMegaMenu}`).hide();
+            $(`.${mobileMegaMenu}-${menuClass}`).show();
+        });
+
+        $(`.${mobileMegaMenu}-${menuClass}-back-btn`).on('click', function () {
+            $(`.${mobileMegaMenu}-${menuClass}`).hide();
+            $(`.${mobileMegaMenu}`).show();
+        });
     }
-  });
-
-  function onPopupOpen(menuClass) {
-    console.log(menuClass);
-    $(`.${mobileMegaMenu}-${menuClass}`).hide();
-
-    $(`.${mobileMegaMenu}-${menuClass}-btn`).on('click', function () {
-      $(`.${mobileMegaMenu}`).hide();
-      $(`.${mobileMegaMenu}-${menuClass}`).show();
-    });
-
-    $(`.${mobileMegaMenu}-${menuClass}-back-btn`).on('click', function () {
-      $(`.${mobileMegaMenu}-${menuClass}`).hide();
-      $(`.${mobileMegaMenu}`).show();
-    });
-  }
 }
 
 /**
@@ -160,23 +160,23 @@ function mobileMegaMenuHandler($) {
  * @param {jQuery} $ jQuery reference
  */
 function moodSelectorHandler($) {
-  $('.mood-selector-btn').on('click', function () {
-    var selectedMood = $(this).attr('data-mood');
-    localStorage.setItem('selectedModeOnHomePage', selectedMood);
-  });
+    $('.mood-selector-btn').on('click', function () {
+        var selectedMood = $(this).attr('data-mood');
+        localStorage.setItem('selectedModeOnHomePage', selectedMood);
+    });
 
-  var selectedMood = localStorage.getItem('selectedModeOnHomePage');
+    var selectedMood = localStorage.getItem('selectedModeOnHomePage');
 
-  $(`.${selectedMood}-mood-selector-btn`).css({
-    'background-color': '#c3c1c0',
-    'border-radius': '50px',
-  });
+    $(`.${selectedMood}-mood-selector-btn`).css({
+        'background-color': '#c3c1c0',
+        'border-radius': '50px',
+    });
 
-  $(`.${selectedMood}-mood-selector-btn img`).css({
-    border: '2px solid #005477',
-    'border-radius': '100%',
-    opacity: '1',
-  });
+    $(`.${selectedMood}-mood-selector-btn img`).css({
+        border: '2px solid #005477',
+        'border-radius': '100%',
+        opacity: '1',
+    });
 }
 
 /**
@@ -186,34 +186,37 @@ function moodSelectorHandler($) {
  * @returns void
  */
 function happyCamperAgeChecker() {
-  var isEligible = getCookie('isEligible');
-  var path = location.pathname;
+    var isEligible = getCookie('isEligible');
+    var path = location.pathname;
 
-  if (isEligible) {
-    var currentURL = sessionStorage.getItem('currentURL');
-    sessionStorage.removeItem('currentURL');
-    currentURL && (location.href = currentURL);
-    return;
-  }
+    if (isEligible) return;
 
-  if (path !== '/age-check/' && path !== '/page-for-under-21/' && path !== '/terms-and-conditions/') {
-    sessionStorage.setItem('currentURL', location.href);
-    location.href = '/age-check/';
-  }
+    if (
+        path !== '/age-check/' &&
+        path !== '/page-for-under-21/' &&
+        path !== '/terms-and-conditions/'
+    ) {
+        jQuery(document).ready(function () {
+            setTimeout(function () {
+                elementorProFrontend.modules.popup.showPopup({id: 3161});
+            }, 2000);
+        });
+    }
 }
 
 /**
- * The function make the user eligible to browse the website 
+ * The function make the user eligible to browse the website
  * when whe user clicks on the eligible btn
  *
  * @param {jQuery} $ jQuery reference
  */
 function storeEligibilityData($) {
-  var eligibleCustomerBtn = $('.happy-camper-eligible-customer-btn')
+    var eligibleCustomerBtn = '.happy-camper-eligible-customer-btn a';
 
-  eligibleCustomerBtn.on('click', function () {
-    document.cookie = 'isEligible=true; path=/; samesite=strict';
-  });
+    $(document).on('click', eligibleCustomerBtn, function (event) {
+      document.cookie = 'isEligible=true; path=/; samesite=strict';
+        elementorProFrontend.modules.popup.closePopup({}, event);
+    });
 }
 
 /**
@@ -222,62 +225,61 @@ function storeEligibilityData($) {
  * @param {jQuery} $ jQuery reference
  */
 function searchToolTipHandler($) {
-  var searchBtn = $('.header-secondary-menu ul > li:nth-child(1)');
-  var closeBtn = $('.header-secondary-menu ul > li:nth-child(2)');
-  var searchContainer = $('.search-form-container');
+    var searchBtn = $('.header-secondary-menu ul > li:nth-child(1)');
+    var closeBtn = $('.header-secondary-menu ul > li:nth-child(2)');
+    var searchContainer = $('.search-form-container');
 
-  closeBtn.hide();
-  searchContainer.hide();
+    closeBtn.hide();
+    searchContainer.hide();
 
-  searchBtn.on('click', toggleVisibility);
-  closeBtn.on('click', toggleVisibility);
+    searchBtn.on('click', toggleVisibility);
+    closeBtn.on('click', toggleVisibility);
 
-  function toggleVisibility() {
-    searchBtn.toggle();
-    closeBtn.toggle();
-    searchContainer.toggle();
-  }
-
-  $(document).mouseup(function (e) {
-    if (
-      !searchContainer.is(e.target) &&
-      searchContainer.has(e.target).length === 0 &&
-      !searchBtn.is(e.target) &&
-      searchBtn.has(e.target).length === 0 &&
-      !closeBtn.is(e.target) &&
-      closeBtn.has(e.target).length === 0
-    ) {
-      searchBtn.show();
-      closeBtn.hide();
-      searchContainer.hide();
+    function toggleVisibility() {
+        searchBtn.toggle();
+        closeBtn.toggle();
+        searchContainer.toggle();
     }
-  });
+
+    $(document).mouseup(function (e) {
+        if (
+            !searchContainer.is(e.target) &&
+            searchContainer.has(e.target).length === 0 &&
+            !searchBtn.is(e.target) &&
+            searchBtn.has(e.target).length === 0 &&
+            !closeBtn.is(e.target) &&
+            closeBtn.has(e.target).length === 0
+        ) {
+            searchBtn.show();
+            closeBtn.hide();
+            searchContainer.hide();
+        }
+    });
 }
 
 /**
  * The function handles the product filter body toggle
  *
  * When a user clicks on the filter title/label or the icons,
- * it toggles the filter listing 
+ * it toggles the filter listing
  *
  * @param {jQuery} $ jQuery reference
  */
 function productFilterToggleHandler($) {
-  var filterCLassNamePrefix = ['tier', 'cannabinoid', 'vibe'];
+    var filterCLassNamePrefix = ['tier', 'cannabinoid', 'vibe'];
 
-  for (let i = 0; i < filterCLassNamePrefix.length; i++) {
-    var prefix = filterCLassNamePrefix[i];
-    console.log(prefix)
+    for (let i = 0; i < filterCLassNamePrefix.length; i++) {
+        var prefix = filterCLassNamePrefix[i];
 
-    $(`.${prefix}-filter`)
-      .find('.product-filter-head ul > li:nth-child(1)')
-      .toggle();
+        $(`.${prefix}-filter`)
+            .find('.product-filter-head ul > li:nth-child(1)')
+            .toggle();
 
-    $(`.${prefix}-filter .product-filter-head`).on('click', function () {
-      $(this).find('ul > li:nth-child(1)').toggle();
-      $(this).find('ul > li:nth-child(2)').toggle();
+        $(`.${prefix}-filter .product-filter-head`).on('click', function () {
+            $(this).find('ul > li:nth-child(1)').toggle();
+            $(this).find('ul > li:nth-child(2)').toggle();
 
-      $(this).siblings().toggle();
-    });
-  }
+            $(this).siblings().toggle();
+        });
+    }
 }

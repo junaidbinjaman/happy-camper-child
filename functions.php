@@ -49,7 +49,7 @@ function child_theme_configurator_scripts() {
 			'woocommerce-smallscreen',
 			'woocommerce-general',
 		),
-		$GLOBALS['version'],
+		fileatime( get_stylesheet_directory() . '/style.css' ),
 		'all'
 	);
 
@@ -57,7 +57,7 @@ function child_theme_configurator_scripts() {
 		'chld_thm_cfg_child_scripts',
 		get_theme_file_uri() . '/scripts.js',
 		array( 'jquery' ),
-		'1.0.0',
+		fileatime( get_stylesheet_directory() . '/scripts.js' ),
 		true
 	);
 	wp_localize_script(
