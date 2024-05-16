@@ -99,7 +99,7 @@ function happy_camper_url_mood_parameter__callback() {
 	if ( isset( $_GET['mood'] ) ) { // phpcs:ignore
 		return sanitize_text_field( wp_unslash( $_GET['mood'] ) ); // phpcs:ignore
 	}
-	return false;
+	return 'happy';
 }
 
 /**

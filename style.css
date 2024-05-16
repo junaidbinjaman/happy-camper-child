@@ -12,13 +12,13 @@ Updated: 2024-04-07 23:27:04
 /* ----------------------------------------
     Global Styles
 ------------------------------------------- */
-.happy-camper-general-btn {
+.happy-camper-general-btn a {
     cursor: pointer;
     transition: all ease-in-out 0.2s;
 }
 
-.happy-camper-general-btn:active {
-    transform: scale(0.7);
+.happy-camper-general-btn a:active {
+    transform: scale(0.8);
 }
 
 /* ----------------------------------------
