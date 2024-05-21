@@ -81,11 +81,10 @@ add_action( 'wp_enqueue_scripts', 'child_theme_configurator_scripts', 10 );
  */
 function init_short_code() {
 	add_shortcode( 'happy_camper_url_mood_parameter', 'happy_camper_url_mood_parameter__callback' );
-
 	add_shortcode( 'get_greenhouse_title_color', 'get_greenhouse_title_color__callback' );
 	add_shortcode( 'get_greenhouse_title', 'get_greenhouse_title__callback' );
-
 	add_shortcode( 'cart_count', 'get_cart_count' );
+	add_shortcode( 'is_user_logged_in', 'is_user_logged_in__callback' );
 }
 
 add_action( 'init', 'init_short_code' );
@@ -256,3 +255,19 @@ function change_lost_your_password_text( $translated_text, $text, $domain ) {
 }
 
 add_filter( 'gettext', 'change_lost_your_password_text', 20, 3 );
+
+/**
+ * The shortcode callback that returns My account
+ * if the current user is logged in. Otherwise, it returns Log In
+ *
+ * @return void
+ */
+function is_user_logged_in__callback() {
+	if ( is_user_logged_in() ) {
+		echo 'My Account';
+		return;
+	}
+
+	echo 'Log In';
+	return; //phpcs:ignore
+}
