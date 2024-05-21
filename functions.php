@@ -271,3 +271,30 @@ function is_user_logged_in__callback() {
 	echo 'Log In';
 	return; //phpcs:ignore
 }
+
+/**
+ * Handle Password length
+ *
+ * @param array  $params Param.
+ * @param string $handle Handler.
+ * @return array
+ */
+function pwd_strength_meter_settings( $params, $handle ) {
+
+	if ( 'wc-password-strength-meter' === $handle ) {
+
+		$params = array_merge(
+			$params,
+			array(
+
+				'min_password_strength' => 2,
+				'i18n_password_error'   => 'Do not you want to be protected? Make it stronger!',
+				'i18n_password_hint'    => ' Please make your password <strong>at least 8 characters</strong> long , For more security use a mix of <strong>UPPER</strong> and <strong>lowercase</strong> letters, <strong>numbers</strong>, and <strong>symbols</strong>',
+			)
+		);
+
+	}
+	return $params;
+}
+
+add_filter( 'woocommerce_get_script_data', 'pwd_strength_meter_settings', 20, 2 );
