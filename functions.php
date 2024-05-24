@@ -298,3 +298,31 @@ function pwd_strength_meter_settings( $params, $handle ) {
 }
 
 add_filter( 'woocommerce_get_script_data', 'pwd_strength_meter_settings', 20, 2 );
+
+/**
+ * The function creates a new custom tab on single product page besides description
+ * to display the additional information in it
+ *
+ * @param array $tabs The array contains the current tab data.
+ * @return array
+ */
+function custom_additional_tab_on_single_product_page( $tabs ) {
+	$tabs['custom_tab'] = array(
+		'title'    => __( 'Additional Data', 'hc_child' ),
+		'priority' => '20',
+		'callback' => 'populate_custom_additional_tab_data',
+	);
+
+	return $tabs;
+}
+
+/**
+ * The callback to populate the data inside additional info tab
+ *
+ * @return void
+ */
+function populate_custom_additional_tab_data() {
+	echo do_shortcode( '[elementor-template id="3581"]' );
+}
+
+add_filter( 'woocommerce_product_tabs', 'custom_additional_tab_on_single_product_page' );
