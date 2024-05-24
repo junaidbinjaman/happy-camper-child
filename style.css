@@ -67,3 +67,14 @@ Updated: 2024-04-07 23:27:04
 .section2, .section1 {
     transition: all ease-in-out 0.3s;
 }
+
+.customers-also-love-product-section {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 780px) {
+    .customers-also-love-product-section {
+        display: none;
+    }
+}
