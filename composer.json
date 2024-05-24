@@ -1,0 +1,22 @@
+{
+    "name": "junaidbinjaman/happy-camper-child",
+    "autoload": {
+        "psr-4": {
+            "Junaidbinjaman\\HappyCamperChild\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "junaidbinjaman",
+            "email": "me@junaidbinjaman.com"
+        }
+    ],
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

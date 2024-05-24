@@ -1,0 +1,18 @@
+Happy Camper Child Theme License
+Copyright (c) 2024, Happy Camper
+
+All rights reserved.
+
+The copying, distribution, and modification of this software are strictly prohibited without the express permission of the copyright owner, [Your Name or Organization].
+
+Restrictions:
+- No modifications, distributions, or creation of derivative works is allowed without explicit permission from [Your Name or Organization].
+- This software is provided 'as is' and with all faults. The copyright owner makes no warranties regarding the performance of the software.
+- Under no circumstances shall the copyright owner be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
+
+Permissions:
+- Use of the software is permitted provided that the following conditions are met:
+  - The software is used for personal, non-commercial purposes.
+  - The user agrees to all terms of this license and acknowledges understanding of the restrictions.
+
+For permissions beyond the scope of this license, please contact [Your Contact Information].

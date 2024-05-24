@@ -1,0 +1,69 @@
+/*
+Theme Name: Happy Camper Child
+Theme URI: https://wpastra.com/
+Template: astra
+Author: Junaid Bin Jaman
+Author URI: https://junaidbinjaman.com
+Description: This is an astra-child theme developed by Junaid Bin Jaman for Happy Camper.
+Version: 1.0.1
+Updated: 2024-04-07 23:27:04
+*/
+
+/* ----------------------------------------
+    Global Styles
+------------------------------------------- */
+.happy-camper-general-btn a {
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+
+.happy-camper-general-btn a:active {
+    transform: scale(0.7);
+}
+
+/* ----------------------------------------
+    Mega menu styles
+------------------------------------------- */
+.mega-menu-container,
+.search-form-container {
+    position: absolute !important;
+    z-index: 999 !important;
+}
+
+.mobile-mega-menu-greenhouse-btn,
+.mobile-mega-menu-greenhouse-back-btn,
+.mobile-mega-menu-bodega-btn,
+.mobile-mega-menu-bodega-back-btn,
+.mobile-mega-menu-spa-btn,
+.mobile-mega-menu-spa-back-btn, 
+.mobile-mega-menu-vapes-btn,
+.mobile-mega-menu-vapes-back-btn,
+.mobile-mega-menu-cannabinoid-btn,
+.mobile-mega-menu-cannabinoid-back-btn, 
+.mobile-mega-menu-feeling-btn,
+.mobile-mega-menu-feeling-back-btn {
+    cursor: pointer;
+}
+
+/* ----------------------------------------
+    Header search show and clone buttons
+------------------------------------------- */
+.header-secondary-menu ul > li:nth-child(1),
+.header-secondary-menu ul > li:nth-child(2) {
+    cursor: pointer;
+}
+
+/* ----------------------------------------
+    Product filter styles
+------------------------------------------- */
+.product-filter-head li:nth-child(1),
+.product-filter-head li:nth-child(2) {
+    cursor: pointer;
+}
+
+/* ----------------------------------------
+    Unknown section styles
+------------------------------------------- */
+.section2, .section1 {
+    transition: all ease-in-out 0.3s;
+}
