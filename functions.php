@@ -322,7 +322,7 @@ function custom_additional_tab_on_single_product_page( $tabs ) {
  * @return void
  */
 function populate_custom_additional_tab_data() {
-	echo do_shortcode( '[elementor-template id="3581"]' );
+	echo do_shortcode( '[elementor-template id="3573"]' );
 }
 
 add_filter( 'woocommerce_product_tabs', 'custom_additional_tab_on_single_product_page' );
