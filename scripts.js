@@ -179,7 +179,6 @@ function moodSelectorHandler($) {
     });
 }
 
-
 /**
  * The function redirects user to age-check page when a users visit the site
  * to ensures, the user is over 21.
