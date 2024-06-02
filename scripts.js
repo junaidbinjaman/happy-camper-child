@@ -265,7 +265,7 @@ function searchToolTipHandler($) {
  * @param {jQuery} $ jQuery reference
  */
 function productFilterToggleHandler($) {
-    var filterCLassNamePrefix = ['tier', 'cannabinoid', 'vibe'];
+    var filterCLassNamePrefix = ['subcategory', 'tier', 'cannabinoid', 'vibe'];
 
     for (let i = 0; i < filterCLassNamePrefix.length; i++) {
         var prefix = filterCLassNamePrefix[i];
