@@ -173,7 +173,7 @@ function moodSelectorHandler($) {
         'border-radius': '50px',
     });
 
-    $(`.${selectedMood}-mood-selector-btn img`).css({
+    $(`.${mood}-mood-selector-btn img`).css({
         border: '2px solid #005477',
         'border-radius': '100%',
         opacity: '1',
