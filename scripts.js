@@ -167,7 +167,15 @@ function moodSelectorHandler($) {
 
     var selectedMood = localStorage.getItem('selectedModeOnHomePage');
 
-    $(`.${selectedMood}-mood-selector-btn`).css({
+    var url = new URL(window.location.href);
+    var params = new URLSearchParams(url.search);
+    var mood = params.get('mood');
+
+    if (!mood) {
+        mood = 'happy'
+    }
+
+    $(`.${mood}-mood-selector-btn a`).css({
         'background-color': '#c3c1c0',
         'border-radius': '50px',
     });
