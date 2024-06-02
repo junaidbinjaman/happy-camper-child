@@ -160,13 +160,6 @@ function mobileMegaMenuHandler($) {
  * @param {jQuery} $ jQuery reference
  */
 function moodSelectorHandler($) {
-    $('.mood-selector-btn').on('click', function () {
-        var selectedMood = $(this).attr('data-mood');
-        localStorage.setItem('selectedModeOnHomePage', selectedMood);
-    });
-
-    var selectedMood = localStorage.getItem('selectedModeOnHomePage');
-
     var url = new URL(window.location.href);
     var params = new URLSearchParams(url.search);
     var mood = params.get('mood');
