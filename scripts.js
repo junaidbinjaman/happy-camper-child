@@ -169,8 +169,7 @@ function moodSelectorHandler($) {
     }
 
     $(`.${mood}-mood-selector-btn a`).css({
-        'background-color': '#c3c1c0',
-        'border-radius': '50px',
+        'opacity': '0.4'
     });
 
     $(`.${mood}-mood-selector-btn img`).css({
