@@ -326,3 +326,5 @@ function populate_custom_additional_tab_data() {
 }
 
 add_filter( 'woocommerce_product_tabs', 'custom_additional_tab_on_single_product_page' );
+
+add_filter( 'wc_product_has_unique_sku', '__return_false' );
