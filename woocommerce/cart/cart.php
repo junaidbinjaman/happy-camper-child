@@ -182,7 +182,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <div class="cart-collaterals">
 	<div class="customers-also-love-product-section">
-		<?php echo do_shortcode( '[elementor-template id="3536"]' ); ?>
+		<?php echo do_shortcode( '[elementor-template id="3580"]' ); ?>
 	</div>
 	<?php
 		/**
