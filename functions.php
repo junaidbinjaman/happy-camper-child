@@ -272,6 +272,7 @@ function is_user_logged_in__callback() {
 	return; //phpcs:ignore
 }
 
+
 /**
  * Handle Password length
  *
@@ -308,7 +309,7 @@ add_filter( 'woocommerce_get_script_data', 'pwd_strength_meter_settings', 20, 2 
  */
 function custom_additional_tab_on_single_product_page( $tabs ) {
 	$tabs['custom_tab'] = array(
-		'title'    => __( 'Additional Data', 'hc_child' ),
+		'title'    => __( 'Additional Info', 'hc_child' ),
 		'priority' => '20',
 		'callback' => 'populate_custom_additional_tab_data',
 	);
