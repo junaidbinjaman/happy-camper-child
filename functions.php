@@ -85,7 +85,7 @@ function init_short_code() {
 	add_shortcode( 'get_greenhouse_title', 'get_greenhouse_title__callback' );
 	add_shortcode( 'cart_count', 'get_cart_count' );
 	add_shortcode( 'is_user_logged_in', 'is_user_logged_in__callback' );
-	add_shortcode( 'foobar', 'foobar__callback' );
+	add_shortcode( 'selected_mood_products', 'selected_mood_products__callback' );
 }
 
 add_action( 'init', 'init_short_code' );
@@ -278,8 +278,8 @@ function is_user_logged_in__callback() {
  *
  * @return void
  */
-function foobar__callback() {
-	$selected_mood = isset( $_GET['mood'] ) ? sanitize_text_field( wp_unslash( $_GET['mood'] ) ) : null; // phpcs:ignore
+function selected_mood_products__callback() {
+	$selected_mood = isset( $_GET['mood'] ) ? sanitize_text_field( wp_unslash( $_GET['mood'] ) ) : 'happy'; // phpcs:ignore
 
 	$all_options = get_option( 'options', array() );
 	$meta_key    = "select-product-for-mood-selector-{$selected_mood}-section";
