@@ -196,7 +196,7 @@ function shorten_woo_product_title( $title, $id ) {
 		return $title;
 	}
 
-	return wp_trim_words( $title, 3 );
+	return wp_trim_words( $title, 6 );
 }
 
 add_filter( 'the_title', 'shorten_woo_product_title', 10, 2 );
