@@ -96,10 +96,17 @@ add_action( 'init', 'init_short_code' );
  * @return mixed
  */
 function happy_camper_url_mood_parameter__callback() {
-	if ( isset( $_GET['mood'] ) ) { // phpcs:ignore
-		return sanitize_text_field( wp_unslash( $_GET['mood'] ) ); // phpcs:ignore
-	}
-	return 'happy';
+	$url     = '/product-category/bodega/?jsf=jet-engine&tax=feeling:';
+	$mood    = isset( $_GET['mood'] ) ? sanitize_text_field( wp_unslash( $_GET['mood'] ) ) : 'happy';
+	$feeling = array(
+		'happy'    => 125,
+		'creative' => 126,
+		'relaxed'  => 127,
+		'aroused'  => 129,
+		'soothed'  => 128,
+	);
+
+	return $url . $feeling[ strtolower( $mood ) ];
 }
 
 /**
