@@ -272,7 +272,11 @@ function productFilterToggleHandler($) {
         var prefix = filterCLassNamePrefix[i];
 
         $(`.${prefix}-filter`)
-            .find('.product-filter-head ul > li:nth-child(1)')
+            .find('.product-filter-head ul > li:nth-child(2)')
+            .toggle();
+
+        $(`.${prefix}-filter`)
+            .find('.product-filter-body')
             .toggle();
 
         $(`.${prefix}-filter .product-filter-head`).on('click', function () {
