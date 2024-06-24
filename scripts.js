@@ -34,6 +34,7 @@
          */
         if (id === 2281) {
             productFilterToggleHandler($);
+            happy_camper_price_based_sort_handler($);
         }
 
         /**
