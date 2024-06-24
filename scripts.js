@@ -15,6 +15,7 @@
 		happyCamperAgeChecker();
         storeEligibilityData($);
         searchToolTipHandler($);
+        happy_camper_price_based_sort_handler($);
 
         if (window.innerWidth >= 1024) {
             productFilterToggleHandler($);
@@ -285,4 +286,27 @@ function productFilterToggleHandler($) {
             $(this).siblings().toggle();
         });
     }
+}
+
+/**
+ * Sort the products by price
+ *
+ * @param {jQuery} $ jQuery reference
+ */
+function happy_camper_price_based_sort_handler($) {
+    $('.happy-camper-price-based-sort').on('click', function() {
+        var currentURL = new URL(window.location.href);
+        var urlParam = '?jsf=jet-engine&sort=orderby%3Aprice%3Border%3A';
+        var data = $(this).data('sort');
+
+        urlParam += data;
+
+        var newURL = currentURL.origin + currentURL.pathname;
+
+        if ('default' !== data) {
+            newURL += urlParam;
+        }
+
+        window.location.href = newURL;
+    });
 }
