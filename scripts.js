@@ -16,34 +16,12 @@
         storeEligibilityData($);
         searchToolTipHandler($);
         happy_camper_price_based_sort_handler($);
-
-        if (window.innerWidth >= 1024) {
-            productFilterToggleHandler($);
-        }
+        productFilterToggleHandler($);
 
         // Change the add to cart btn text on single product page
         var btnText =
             'Add To Cart <span class="dashicons dashicons-arrow-right-alt"></span>';
         $('.single_add_to_cart_button').html(btnText);
-    });
-
-    $(document).on('elementor/popup/show', function (event, id, instance) {
-        /**
-         * Run productFilterToggleHandler function on mobile
-         * when the popup opens on greenhouse page
-         */
-        if (id === 2281) {
-            productFilterToggleHandler($);
-            happy_camper_price_based_sort_handler($);
-        }
-
-        /**
-         * Run productFilterToggleHandler function on mobile
-         * when the popup opens on all the shop page other than greenhouse
-         */
-        if (id === 2633) {
-            productFilterToggleHandler($);
-        }
     });
 })(jQuery);
 
@@ -170,7 +148,7 @@ function moodSelectorHandler($) {
         mood = 'happy'
     }
 
-    $(`.${mood}-mood-selector-btn a`).css({
+    $(`.${mood}-mood-selector-btn a.elementor-button`).css({
         'opacity': '0.4'
     });
 
