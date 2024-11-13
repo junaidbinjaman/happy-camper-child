@@ -160,7 +160,7 @@ function get_greenhouse_title__callback() {
 		$term_id = $term->term_id;
 		switch ( $term_id ) {
 			case '103':
-				echo 'Reserved';
+				echo 'Reserve';
 				break;
 			case '104':
 				echo 'Exotic';
